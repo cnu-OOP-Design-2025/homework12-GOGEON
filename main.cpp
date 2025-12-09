@@ -41,9 +41,22 @@ void doTest() {
 
     for(auto player: players){
         cout << "-------------------------------------------------------------" << endl;
-        equip_test1(player);
-        equip_test2(player);
-        equip_test3(player);
+        try {equip_test1(player);} 
+        catch (invalid_argument& e) {
+            Logger::getInstance()->log("[Fail to Equip] ");
+            cout << e.what() << endl;
+        }
+        try {equip_test2(player);} 
+        catch (invalid_argument& e) {
+            Logger::getInstance()->log("[Fail to Equip] ");
+            cout << e.what() << endl;
+        }
+        try {equip_test3(player);} 
+        catch (invalid_argument& e) {
+            Logger::getInstance()->log("[Fail to Equip] ");
+            cout << e.what() << endl;
+        }
+        
     }
     cout << "-------------------------------------------------------------" << endl;
 
